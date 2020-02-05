@@ -10,6 +10,8 @@ namespace BankAccountWithTests
     {
         static void Main(string[] args)
         {
+            var acc = new BankAccount("a123"); // oops, white space, null, empty strings all work
+            // acc.Balance = 1000000; // we want to prevent direct setting of the balance from working
         }
     }
 }
