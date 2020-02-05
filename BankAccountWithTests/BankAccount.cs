@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BankAccountWithTests
 {
-    class BankAccount
+    public class BankAccount
     {
         private string accountNumber;
 
