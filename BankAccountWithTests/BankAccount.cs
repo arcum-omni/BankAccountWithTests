@@ -39,7 +39,7 @@ namespace BankAccountWithTests
         public double Balance { get; private set; }
 
         /// <summary>
-        ///  Sum of money placed into the bank account,
+        ///  Deposits a postive sum of money into a bank account,
         ///  returns new account balance.
         /// </summary>
         /// <exception cref="ArgumentException">Thrown when amt is less than, or equal to, 0</exception>
