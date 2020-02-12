@@ -95,6 +95,8 @@ namespace BankAccountWithTests.Tests
         }
 
         [TestMethod]
+        [TestCategory("Deposit")]
+        [Priority(10)]
         [DataRow(-9999999999.99)]
         [DataRow(-99.99)]
         [DataRow(-10.00)]
@@ -108,6 +110,44 @@ namespace BankAccountWithTests.Tests
 
             // Act => Assert
             Assert.ThrowsException<ArgumentException>(() => acc.Deposit(depAmt));
+        }
+
+        [TestMethod]
+        [TestCategory("Deposit")]
+        [Priority(20)]
+        public void Deposit_MultiplePositiveDeposits_AddsToBalance()
+        {
+            // Arrange
+            BankAccount acc = new BankAccount("abc123");
+            double amt1 = 100;
+            double amt2 = 50;
+
+            // Act/Assert
+            acc.Deposit(amt1);
+            Assert.AreEqual(amt1, acc.Balance);
+
+            acc.Deposit(amt2);
+            Assert.AreEqual(amt1 + amt2, acc.Balance);
+        }
+
+        [TestMethod]
+        [TestCategory("Withdrawl")]
+        [Priority(10)]
+        public void Withdraw_PositiveAmount_ReducesBalance()
+        {
+            // Arrange
+            string accNum = "abc123";
+            double initialBal = 100.0;
+            double withdrawAmt = 25.5;
+            double expectedBal = initialBal - withdrawAmt;
+
+            BankAccount acc = new BankAccount(accNum, initialBal);
+
+            // Act
+            acc.Withdraw(withdrawAmt);
+
+            // Assert
+            Assert.AreEqual(expectedBal, acc.Balance);
         }
     }
 }
