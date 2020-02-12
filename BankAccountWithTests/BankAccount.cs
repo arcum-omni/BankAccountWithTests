@@ -40,6 +40,7 @@ namespace BankAccountWithTests
 
         /// <summary>
         ///  Deposits a postive sum of money into a bank account,
+        ///  increases account balance,
         ///  returns new account balance.
         /// </summary>
         /// <exception cref="ArgumentException">Thrown when amt is less than, or equal to, 0</exception>
@@ -57,6 +58,11 @@ namespace BankAccountWithTests
             return Balance;
         }
 
+        /// <summary>
+        /// Withdraw a specified amount money from a bank account,
+        /// decreases account balance,
+        /// returns new account balance.
+        /// </summary>
         public void Withdrawl()
         {
 
