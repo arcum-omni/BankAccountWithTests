@@ -11,6 +11,7 @@ namespace BankAccountWithTests.Tests
     [TestClass()]
     public class BankAccountTests
     {
+        #region TestMethod
         [TestMethod]
         [DataRow("test123")]
         [DataRow("a")]
@@ -20,6 +21,7 @@ namespace BankAccountWithTests.Tests
         [DataRow("273°")]
         [DataRow("test123")]
         [DataRow("😊")]
+        #endregion
         public void Constructor_ValidAccNum_SetsAccNum(string accNum)
         {
             // Arrange => Act
@@ -29,10 +31,12 @@ namespace BankAccountWithTests.Tests
             Assert.AreEqual(accNum, acc.AccountNumber);
         }
 
+        #region TestMethod
         [TestMethod]
         [DataRow(null)]
         [DataRow("")]
         [DataRow(" ")]
+        #endregion
         public void Constructor_InvalidAccNum_ThrowsArgumentException(string accNum)
         {
             // Arrange, Act, & Assert
@@ -74,12 +78,14 @@ namespace BankAccountWithTests.Tests
             Assert.AreEqual(expBal, acc.Balance);
         }
 
+        #region TestMethod
         [TestMethod]
         [DataRow(0.00001)] // should fail, basically depositing zero cents.
         [DataRow(0.01)]
         [DataRow(10.00)]
         [DataRow(100.01)]
         [DataRow(9999999999.99)]
+        #endregion
         public void Deposit_PositiveAmount_ReturnsUpdatedBalance(double depAmt)
         {
             // Arrange
@@ -94,6 +100,7 @@ namespace BankAccountWithTests.Tests
             Assert.AreEqual(expectedBalance, returnedBalance);
         }
 
+        #region TestMethod
         [TestMethod]
         [TestCategory("Deposit")]
         [Priority(10)]
@@ -103,6 +110,7 @@ namespace BankAccountWithTests.Tests
         [DataRow(-0.01)]
         [DataRow(-0.00001)]
         [DataRow(0.00)]
+        #endregion
         public void Deposit_NegativeAmount_ThrowsArgumentException(double depAmt)
         {
             // Arrange
@@ -112,9 +120,11 @@ namespace BankAccountWithTests.Tests
             Assert.ThrowsException<ArgumentException>(() => acc.Deposit(depAmt));
         }
 
+        #region TestMethod
         [TestMethod]
         [TestCategory("Deposit")]
         [Priority(20)]
+        #endregion
         public void Deposit_MultiplePositiveDeposits_AddsToBalance()
         {
             // Arrange
@@ -130,9 +140,11 @@ namespace BankAccountWithTests.Tests
             Assert.AreEqual(amt1 + amt2, acc.Balance);
         }
 
+        #region TestMethod
         [TestMethod]
         [TestCategory("Withdrawl")]
         [Priority(10)]
+        #endregion
         public void Withdraw_PositiveAmount_ReducesBalance()
         {
             // Arrange
