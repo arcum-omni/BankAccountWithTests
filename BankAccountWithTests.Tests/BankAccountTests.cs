@@ -47,14 +47,14 @@ namespace BankAccountWithTests.Tests
         public void Deposit_PositiveValue_AddsToBalance_Test()
         {
             // test coverage, % of code covered by tests
-            // depost 0, -1, 100, 4500, 90000
+            // deposit 0, -1, 100, 4500, 90000
             
             // Arrange, create objects & variables
             BankAccount acc = new BankAccount("test123");
             double depAmt = 100.0;
             double expBal = 100.0;
 
-            // Act, Call methond under test
+            // Act, Call method under test
             acc.Deposit(depAmt);
 
             // Assert; it is possible to have multiple asserts
@@ -142,7 +142,7 @@ namespace BankAccountWithTests.Tests
 
         #region TestMethod
         [TestMethod]
-        [TestCategory("Withdrawl")]
+        [TestCategory("Withdrawal")]
         [Priority(10)]
         #endregion
         public void Withdraw_PositiveAmount_ReducesBalance()

@@ -23,13 +23,13 @@ namespace BankAccountWithTests
 
         public string AccountNumber
         {
-            //get => accountNumber; // I'm not used to lamba expressions (=>) yet
+            //get => accountNumber; // I'm not used to lambda expressions (=>) yet
             get
             { 
                 return accountNumber;
             }
 
-            //set => accountNumber = value;  // I'm not used to lamba expressions (=>) yet
+            //set => accountNumber = value;  // I'm not used to lambda expressions (=>) yet
             set
             {
                 if(string.IsNullOrWhiteSpace(value))
@@ -45,7 +45,7 @@ namespace BankAccountWithTests
         public double Balance { get; private set; }
 
         /// <summary>
-        ///  Deposits a postive sum of money into a bank account,
+        ///  Deposits a positive sum of money into a bank account,
         ///  increases account balance,
         ///  returns new account balance.
         /// </summary>
